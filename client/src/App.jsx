@@ -19,6 +19,7 @@ import { PlaceProvider } from './providers/PlaceProvider';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { getItemFromLocalStorage } from './utils';
 import NotFoundPage from './pages/NotFoundPage';
+import Icons from './pages/Icons';
 
 function App() {
   useEffect(() => {
@@ -30,9 +31,13 @@ function App() {
 
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+      
       <UserProvider>
+      
         <PlaceProvider>
+        
           <Routes>
+          
             <Route path="/" element={<Layout />}>
               <Route index element={<IndexPage />} />
               <Route path="/login" element={<LoginPage />} />
@@ -50,7 +55,9 @@ function App() {
               <Route path="*" element={<NotFoundPage />} />
             </Route>
           </Routes>
+          
           <ToastContainer autoClose={2000} transition={Slide} />
+          
         </PlaceProvider>
       </UserProvider>
     </GoogleOAuthProvider>
