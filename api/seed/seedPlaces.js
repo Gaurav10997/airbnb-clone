@@ -28,8 +28,8 @@ const seedDatabase = async () => {
         address:faker.address.cardinalDirection(),
         photos:photos,
         perks:faker.vehicle.bicycle() ,
-        maxGuests: Math.floor(Math.random()) * 10,
-        price:Math.floor(Math.random()) * 100,
+        maxGuests: Math.floor(Math.random() * 10) ,
+        price:Math.floor(Math.random() * 100000 ) ,
         description:faker.lorem.paragraph()
       }
       console.log(currentData)
