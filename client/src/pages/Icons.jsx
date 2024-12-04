@@ -48,7 +48,7 @@ function Icons() {
       ];
   return (
     <>
-      <div className="border-b-2 px-16 h-20 fixed z-20 w-full top-16">
+      <div className="border-b-2 px-16 h-20 mt-16 z-20 w-full bg-white">
         <ul className="flex gap-0   justify-between h-full">
           {arr.map((i) => {
             
