@@ -2,9 +2,21 @@ const express = require('express');
 const router = express.Router();
 const cloudinary = require('cloudinary').v2;
 const multer = require('multer');
+const {get} = require('./../startup/startup')
 
 // multer
 const  upload = multer({ dest: '/tmp' });
+
+
+router.get('/config', (req, res) => {
+  const type = req.query.type; // Accessing query parameter
+  const data = get(type); // Assuming `get` is a function that handles the logic
+  
+  res.status(200).json({
+    status: 'Hello from airbnb-clone api',
+    data: data,
+  });
+});
 
 router.get('/', (req, res) => {
   res.status(200).json({
