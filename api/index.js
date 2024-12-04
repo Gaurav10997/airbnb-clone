@@ -5,9 +5,15 @@ const connectWithDB = require("./config/db");
 const cookieSession = require("cookie-session");
 const cookieParser = require("cookie-parser");
 const cloudinary = require("cloudinary").v2;
+const { loadConfig } = require('./../api/startup/startup')
 
-// connect with database
-connectWithDB();
+async function loadConfigurations(){
+  await connectWithDB();
+  await loadConfig()
+}
+
+loadConfigurations()
+
 
 // cloudinary configuration
 cloudinary.config({
@@ -15,6 +21,7 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
 
 const app = express();
 
